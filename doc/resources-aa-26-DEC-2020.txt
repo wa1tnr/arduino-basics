@@ -1,0 +1,127 @@
+resources-aa-26-DEC-2020.txt
+
+Sat Dec 26 18:17:24 UTC 2020
+
+(nominally: resources.txt)
+
+millis();
+interrupts
+Debounce.ino (Arduino IDE example program)
+storing values into an array as they arrive
+Shattuck's Forth-Like Interpreter mentioned
+
+[3:42 PM] tnr: use millis()
+[3:42 PM] tnr: Play with it. Get it, print it, see what it does.
+
+[3:43 PM] tnr: arduino.cc has help pages for all inbuilt functions such as millis();
+
+[3:44 PM] tnr: Basically, millis(); is like when you look at the kitchen clock, remember what time it said it was, then go off and do something.  Come back to the kitchen, look at the clock a second time, and say to yourself 'wow, ten minutes have passed - I must have been daydreaming.'
+
+[3:44 PM] tnr: millis() is the time it said it was, both times.
+
+[4:26 PM] tnr: https://www.gammon.com.au/interrupts
+
+For interrupts.
+
+Otherwise, look at the example sketches in the Arduino IDE for pushbutton foo.
+
+[4:34 PM] tnr: debounce:
+
+http://assiss.github.io/arduino-zhcn/cn/Tutorial/Debounce.html
+
+[4:37 PM] tnr: Interrupts Tutorial:
+
+https://thekurks.net/blog/2016/4/25/using-interrupts
+
+[4:38 PM] tnr: All of the packaged Arduino examples, in one place:
+
+https://github.com/arduino/arduino-examples
+
+[4:39 PM] tnr: This is the Debounce.ino example from the Arduino IDE:
+
+https://github.com/arduino/arduino-examples/tree/main/examples/02.Digital/Debounce
+
+[4:41 PM] tnr: That one is a millis(); based solution:
+
+https://github.com/arduino/arduino-examples/blob/main/examples/02.Digital/Debounce/Debounce.ino#L63
+
+[5:06 PM] tnr: In Shattuck's Forth-Like Interpreter,
+
+push(); increments automatically.
+
+https://github.com/CharleyShattuck/Feather-M0-interpreter/blob/master/Interpreter.ino#L34
+
+[5:07 PM] tnr: He basically declares an array of ints, with the current array element as TOS (top of stack).
+
+[5:07 PM] tnr: Then just maintains the index into that array of ints, to form an ersatz Forth 'stack'.
+[5:08 PM] tnr: It's also the basics of a ring buffer.
+
+[5:12 PM] tnr: That stack structure is FIFO with wrap-around.
+[5:13 PM] tnr: aka ring buffer ;)
+
+[5:13 PM] tnr: it is not a push-down stack at all.
+[5:13 PM] tnr: (and it's not a stack; it's a global array of ints used like a stack, but it isn't a stack, per se)
+
+
+
+[5:16 PM] tnr: I have a thermometer program that records the temperature as HOT COLD or MIXED/TRANSITIONING.
+
+[5:16 PM] tnr: Every 3 minutes or so.
+[5:16 PM] tnr: Blue RGB is cold; red is hot and green means it's transitioning.
+[5:17 PM] tnr: So I just walk into the room - if I see all BLUE RGB's (array of 8 of them) I know it hasn't cycled since 3 * 8 = 24 minutes.
+[5:17 PM] tnr: it == air conditioner ;)
+
+
+[5:18 PM] tnr: It uses Charley Shattuck's circular stack (FIFO) and the oldest temperature drops off the end and is lost to history.
+
+
+[5:20 PM] tnr: This looks like an abstraction to demo some of that:
+
+https://github.com/wa1tnr/ring-led-a/blob/master/ring-led-aa/sketch_ring-led-aa.cpp
+[5:21 PM] tnr: It basically simulates the LED's with Serial.print("foo"); statements at the terminal.
+[5:21 PM] tnr: As usual, I didn't remove unused code. ;)
+
+
+[5:23 PM] tnr: Bear in mind the stack size must be an exact multiple of 2 (2, 4, 8, 16, 32 ..) or it breaks the program.
+[5:23 PM] tnr: Just put in placeholders to 'absorb' the unused slots, if, say, you need 12 slots.
+[5:23 PM] tnr: (called a nop for no operation ;)
+
+
+[5:24 PM] tnr: The wrap-around feature basically uses a logical AND to strip off the most significant bit, during overflow.
+[5:24 PM] tnr: (of the stack 'index')
+
+
+[5:25 PM] tnr: 8-element stack: 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7 ..
+
+[5:25 PM] tnr: When it gets to 7, it increments by one (as always) which gets stripped off to become a zero again.
+
+
+0 0 0 0  zero
+0 0 0 1 one
+0 0 1 0 two
+.
+.
+0 1 1 0 six
+0 1 1 1 seven
+1 0 0 0 eight - illegal (overflow)
+0 0 0 0 zero (again - high bit stripped off of eight)
+
+
+[5:28 PM] tnr: You can do all that with straight math on any base at all (base 11, base 121 .. anything).
+
+
+[5:29 PM] tnr: But the use of a logical AND operates on a single bit (usually) so that restricts simpler use to powers of two.
+
+
+
+[5:30 PM] tnr: This guy here does all that work:
+
+https://github.com/wa1tnr/ring-led-a/blob/master/ring-led-aa/sketch_ring-led-aa.cpp#L34
+
+[5:31 PM] tnr: (also on line 41 for the inverse case, where you are 'pop'-ing off the stack, to decrement that index.)
+
+[5:32 PM] tnr: TOS stack[p] is a cpp macro btw.
+
+[5:33 PM] tnr: p is a global integer and is the stack index (or 'pointer').
+
+END.

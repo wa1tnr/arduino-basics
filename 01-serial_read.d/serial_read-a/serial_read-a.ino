@@ -1,5 +1,5 @@
 void setup() {
-#define TIMESTAMP "Sun Dec 27 22:14:14 UTC 2020"
+#define TIMESTAMP "Sun Dec 27 22:35:35 UTC 2020"
   char p;
   int k;
   Serial.begin(9600);
@@ -19,7 +19,6 @@ void setup() {
   Serial.println("Regular program entry point.");
   Serial.println("Type any character followed by ENTER, now: ");
   while(!Serial.available());
-  // Serial.println("Type any character followed by ENTER, now: ");
   p = Serial.read();
   Serial.print(" character typed was: ");
   Serial.print(p, HEX);

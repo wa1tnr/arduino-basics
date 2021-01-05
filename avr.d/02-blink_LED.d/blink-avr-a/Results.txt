@@ -1,0 +1,18 @@
+
+ Tue Jan  5 22:04:45 UTC 2021
+
+ Simple upload to the target succeeded 32u4 5V 16 MHz ItsyBitsy
+
+ The test program already resident was reminiscent of
+ the current program, so difficult to differentiate.
+
+ Will modify accordingly.
+
+ Note: new target from factory; new USB cable from them.
+
+ Packaged the target inside a plastic housing, so there
+ was no access (at all) to the reset button.
+
+ The upload succeeded anyway. ;)
+
+

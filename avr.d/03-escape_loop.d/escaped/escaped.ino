@@ -8,25 +8,40 @@ void setup() {
     bbb = -1; // TRUE
     countdown++; // initialize
 }
+
+void cruftlooped() {
+    bbb = 0;
+}
+
 bool dothing() {
+    bbb = -1;
+    countdown++;
+    if (countdown > 5) {
+        countdown = 0;
+        cruftlooped();
+    }
     if (bbb) {
-        bbb = 0; // falsify it
+        Serial.print("bbb was true! ");
         timestamped = millis();
+        Serial.println(timestamped);
+        delay(800);
         return 1;
     }
-    Serial.println("bbb was false!");
+    Serial.print("bbb was false! ");
     timestamped = millis();
-    bbb = -1; // make it true
+    Serial.println(timestamped);
+    delay(800);
     return 0;
+    Serial.println("Fall-thru case.  ERROR.");
 }
-void cruftlooped() { }
+
 void loop() {
-    while(dothing());
+    while(dothing()); // loop forever until dothing() returns false
     Serial.print("Did thing: ");
     Serial.println(timestamped);
-    // bbb = 0; // false
     delay(999);
-    countdown++;
-    if (countdown > 5) { countdown = 0; cruftlooped(); }
+    // Note how 'Did thing:' message means
+    // the loop started over
+    // and got past the 'dothing()' function
 }
 // END.

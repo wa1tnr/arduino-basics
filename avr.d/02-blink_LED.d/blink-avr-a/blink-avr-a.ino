@@ -39,6 +39,8 @@ void setup(void) {
 void loop(void) {
     bool state = 0;
     int j = millis();
+    // circumvent program to force more interesting LED pattern:
+    found_error(); // does not return!
     do {
         int k = millis();
         if ((k - j) > 200) {

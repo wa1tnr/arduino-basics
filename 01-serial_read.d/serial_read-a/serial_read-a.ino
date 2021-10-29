@@ -51,6 +51,7 @@ int getch() {
     if( p == '\012') { return -1; }
     // int s = Serial.available();
     // if (s > 1) { Serial.println("ERROR TWO"); }
+    return -999; // big kludge
 }
 
 void loop() {

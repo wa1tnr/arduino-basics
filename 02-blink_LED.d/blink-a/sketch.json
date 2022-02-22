@@ -1,0 +1,6 @@
+{
+  "cpu": {
+    "fqbn": "adafruit:avr:itsybitsy32u4_5V",
+    "port": ""
+  }
+}

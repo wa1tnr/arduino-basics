@@ -4,23 +4,39 @@
 
 // we light one pixel at a time, this is our counter
 uint8_t pixeln = 0;
+uint8_t pixelwhl = 3;
+
+#define INTENSITY 1 // 8 bits
 
 void setup() {
   Serial.begin(9600);
   Serial.println("Circuit Playground test!");
 
   CircuitPlayground.begin();
+  CircuitPlayground.setBrightness(INTENSITY);
 }
 
 
 void loop() {
+  uint16_t raw_millis = 0;
+  raw_millis = millis();
+  bool expired = 0;
+  do {
+    uint16_t result = ( millis() - raw_millis);
+    if (result > 22 ) // 655) 
+        { expired = -1; }
+  } while (! expired);
+
   // turn off speaker when not in use
   CircuitPlayground.speaker.enable(false);
 
+
+#ifdef BLINKENRED
   // test Red #13 LED
   CircuitPlayground.redLED(HIGH);
   delay(100);
   CircuitPlayground.redLED(LOW);
+#endif
 
   /************* TEST CAPTOUCH */
   Serial.print("Capsense #3: "); Serial.println(CircuitPlayground.readCap(3));
@@ -44,11 +60,23 @@ void loop() {
   delay(10);
 
   /************* TEST 10 NEOPIXELS */
-  CircuitPlayground.setPixelColor(pixeln++, CircuitPlayground.colorWheel(25 * pixeln));
-  if (pixeln == 11) {
-    pixeln = 0;
-    CircuitPlayground.clearPixels();
-  }
+  pixelwhl++; pixeln++ ; pixeln++ ; pixeln++; pixeln++ ; pixeln++ ;
+  if (pixeln == 11) { pixeln = 0; }
+  if (pixeln == 12) { pixeln = 1; }
+  if (pixeln == 13) { pixeln = 2; }
+
+  // strip will signal missing pixels as if they were present
+
+#if 0
+  if (pixeln == 14) { pixeln = 3; }
+  if (pixeln == 15) { pixeln = 4; }
+  if (pixeln == 16) { pixeln = 5; }
+  if (pixeln == 17) { pixeln = 6; }
+#endif
+
+  CircuitPlayground.setPixelColor(pixeln, CircuitPlayground.colorWheel( ((25 * pixelwhl) & 0xFF)));
+
+    // CircuitPlayground.clearPixels();
   delay(10);
 
   /************* TEST BOTH BUTTONS */

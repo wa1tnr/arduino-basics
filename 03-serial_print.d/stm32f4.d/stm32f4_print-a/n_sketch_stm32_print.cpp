@@ -1,4 +1,6 @@
-// Thu  9 Feb 17:12:17 UTC 2023
+#define SER_MSG "Fri 10 Feb 00:36:53 UTC 2023"
+
+#define BLINK_ITER 111
 
 // initial testing for git-hosted code
 
@@ -63,18 +65,28 @@ void gpio_setup() {
   cpl(EDGE_RED);
 }
 
+
 void serial_setup() {
   NEW_SERIAL_CONN.begin(9600);
 }
 
-#define PRINT_ITER 333 // how many times the message prints consecutively
-#define SER_MSG "Thu  9 Feb 17:12:17 UTC 2023"
+
+void print_message() {
+  NEW_SERIAL_CONN.println(SER_MSG);
+  delay(500);
+}
+
+#define PRINT_ITER 1 // how many times the message prints consecutively
 
 void logon_message() {
-  int iterations = PRINT_ITER ;
-  for (int index = PRINT_ITER; index > 0; index--) {
-    NEW_SERIAL_CONN.println(SER_MSG);
-    delay(500);
+// int iterations = PRINT_ITER ;
+  if (PRINT_ITER > 1) {
+    for (int index = PRINT_ITER; index > 0; index--) {
+      print_message();
+    }
+  }
+  if (PRINT_ITER == 1) {
+    print_message();
   }
 }
 
@@ -86,14 +98,15 @@ void logon_message() {
   const int WANTED_LOGON = 0;
 #endif
 
+
 void setup() {
   delay(800);
   gpio_setup();
   serial_setup();
-  if (WANTED_LOGON) { logon_message(); }
-  int blinks = 11;
+  int blinks = BLINK_ITER ;
   for (int i = blinks; i > 0; i--) {
     blink();
+    if (WANTED_LOGON) { logon_message(); }
   }
 }
 

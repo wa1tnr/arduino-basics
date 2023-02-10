@@ -1,0 +1,36 @@
+Fri 10 Feb 00:40:30 UTC 2023
+
+Instructions - STM32F407VGT6
+
+ $ cat /some/path/to/.arduino15/preferences.txt | sed 1q
+board=GenF4
+
+ $ st-flash reset # optional
+
+ $ st-flash write  this_program.ino.bin 0x08000000
+
+Press black RESET button between any two commands, if board is
+unresponsive.
+
+No new jumper settings - keep as shipped from factory.
+
+If you want to run the board stand-alone, powered by the
+microUSB-b port, CN5 (smaller of the two; the other is a
+mini designated CN1) you can jumper PA9 to 5V (read schematic
+as to why) (CAUTION! NEEDS REVIEW - unsure this is correct).
+
+The other USB port (on CN1) already powers the board, as-shipped.
+
+Interference from the two USB ports (both plugged into the
+host PC) is the basis to want a stand-alone USB on the
+USB micro-B port (CN5).
+
+CN1 connects to STM32F103 (U2) ST-LINK programmed MCU.
+
+CN5 connects to STM32F407 (Ux) target (appliction) MCU
+at PA11 and PA12.
+
+PA9 is a convenient header pin to source VBUS from CN5
+(and pass it along to the 5V pin, to distribute power).
+
+END.

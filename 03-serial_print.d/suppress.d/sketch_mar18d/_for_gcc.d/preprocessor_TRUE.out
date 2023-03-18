@@ -1,0 +1,45 @@
+# 1 "./testme.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "./testme.cpp"
+
+
+
+#  define DEBUGGG true   /* use more resources if true */
+
+
+const bool Debug = 1;
+
+void forced() {
+    for (volatile int count = 5; count > 0; count--) {
+    }
+}
+
+
+
+
+static class {
+public:
+    void begin(...) {}
+    void print(...) {}
+    void quayle(...) {}
+    void println(...) {}
+} Serial;
+
+
+
+int fred = 33;
+
+int main() {
+
+    if (Debug == 1)
+
+        if (true) Serial.begin(9600);
+        if (true) Serial.quayle(fred);
+    if (Debug == 1)
+
+        if (true) Serial.println("-----Reset-----");
+    forced();
+}

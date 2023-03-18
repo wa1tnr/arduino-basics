@@ -1,4 +1,5 @@
 #include <Arduino.h>
+// change the next line to 'true' where it says 'false':
 #define DO_THE_THING false
 void idling() {
     for (volatile int count = 77; count > 1; count--) { }

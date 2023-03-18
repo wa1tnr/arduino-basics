@@ -1,4 +1,7 @@
-#define SER_MSG "Fri 10 Feb 00:36:53 UTC 2023"
+#define SER_MSG " Sat 11 Feb 02:54:33 UTC 2023 meuuda"
+
+// strap PB2 to GND, BOOT0 to VDD, and PA9 to 5V for dfu access
+// also pull discovery jumers (or at least that does not create a new harm noticed)
 
 #define BLINK_ITER 111
 

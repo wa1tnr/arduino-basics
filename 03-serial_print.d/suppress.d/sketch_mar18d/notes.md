@@ -1,16 +1,20 @@
-#### Sat 18 Mar 20:46:14 UTC 2023
-
+#### Sun 19 Mar 02:38:11 UTC 2023
 
 Simple demonstration of:
 
-
 `if (false) Serial.begin(9600);`
 
-How that suppresses inclusion of the hardware serial lib object code,
-or some similar idea that lowers the size of the compiled binary in
-the Arduino IDE environment.
+See:
+https://godbolt.org/z/TYWh97WqE
 
-Savings are significant.
+How a conditional (that always evaluates false) suppresses inclusion of
+following code on a line such as:
 
+`if <condition> <statement>`
+
+Compiled code is much smaller.
+
+Set the ` -E ` compiler flag (see Compiler options window)
+to see the **preprocessor** output.
 
 END.

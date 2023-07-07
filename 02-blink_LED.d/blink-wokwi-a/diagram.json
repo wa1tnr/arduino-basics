@@ -7,21 +7,21 @@
     {
       "type": "wokwi-led",
       "id": "led1",
-      "top": 10,
+      "top": 5,
       "left": 270,
       "attrs": { "color": "blue", "flip": " " }
     },
     {
       "type": "wokwi-led",
       "id": "led2",
-      "top": 80,
+      "top": 70,
       "left": 270,
       "attrs": { "color": "yellow", "flip": " " }
     },
     {
       "type": "wokwi-led",
       "id": "led3",
-      "top": 150,
+      "top": 140,
       "left": 270,
       "attrs": { "color": "red", "flip": " " }
     }
@@ -29,12 +29,24 @@
   "connections": [
     [ "esp:TX0", "$serialMonitor:RX", "", [] ],
     [ "esp:RX0", "$serialMonitor:TX", "", [] ],
-    [ "esp:GND.1", "led3:C", "black", [ "h53.8", "v95.03", "h-2" ] ],
-    [ "led3:C", "led2:C", "green", [ "v-0.63", "h30.1", "v-52", "h-22.67" ] ],
-    [ "led2:C", "led1:C", "green", [ "v12.7", "h28.1", "v-60.67", "h-20.67" ] ],
-    [ "esp:D21", "led1:A", "green", [ "h159.13", "v8.47", "h19.33" ] ],
-    [ "esp:D19", "led2:A", "green", [ "h107.8", "v69.17", "h58.67" ] ],
-    [ "esp:D18", "led3:A", "green", [ "h85.8", "v132.33", "h90" ] ]
+    [ "esp:GND.1", "led3:C", "black", [
+
+
+ "h25", "v80", "h198",
+ 
+ "v-26", "h1"
+ 
+
+ ] ],
+
+
+
+    [ "led3:C", "led2:C", "orange", ["v21", "h30", "v-75", "h-29" ] ],
+    [ "led2:C", "led1:C", "violet", ["v16",
+     "h30", "v-65", "h-20" ] ],
+    [ "esp:D21", "led1:A", "white", [ "h1" ] ],
+    [ "esp:D19", "led2:A", "red", [ "h140", "v55", "h1" ] ],
+    [ "esp:D18", "led3:A", "green", [ "h130", "v120", "h1" ] ]
   ],
   "dependencies": {}
 }

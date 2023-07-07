@@ -1,14 +1,17 @@
-// Uno R3 wokwi vscode sim  blinkie with featurezz
 // blink-a.ino
-// Fri Jul  7 16:18:22 UTC 2023
+// Fri Jul  7 19:46:02 UTC 2023
+// ESP32 devkit wokwi vscode sim  blinkie with featurezz
+
+// formerly:
+// Uno R3 wokwi vscode sim  blinkie with featurezz
 
 #include <Arduino.h>
 #define ARE_YOU_THERE                                                          \
-    "it's in the bag - working program 17:34:22z  keiota  bialto"              \
+    "it's in the bag - working program 19:45:48z  bialto  pofade"              \
     "\n\nobjective: make a thing happen every n blinks but not every 1 blink " \
     ";)\n"
 
-// was: Feather M0 Express
+// was: Uno R3 July 2023
 
 #define SDELAY 4
 #define SDELAYR 1200
@@ -53,7 +56,7 @@ void found_error(void) {
     trapped_in_error();
 }
 
-void consequences() { Serial.write('Q'); }
+void consequences() { Serial.write('.'); }
 
 const int SCALING = 14;
 uint16_t not_every = 0;

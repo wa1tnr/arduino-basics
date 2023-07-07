@@ -14,7 +14,8 @@
 #define SDELAYR 1200
 #define LDELAY 4000
 #define LDELAYR 400
-#define LED 6 // D13
+// #define LED 6 // D13
+#define LED 21 // D13
 
 void trapped_in_error() {
     do {

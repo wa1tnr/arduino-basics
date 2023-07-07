@@ -7,8 +7,9 @@
 
 #include <Arduino.h>
 #define ARE_YOU_THERE                                                          \
-    "it's in the bag - working program 19:45:48z  bialto  pofade"              \
-    "\n\nobjective: make a thing happen every n blinks but not every 1 blink " \
+    "\nit's in the bag - working program 21:28:32z  pofade  tuvarre"           \
+    "\n\nobjective: make a thing happen (dots will echo) every n blinks -- "   \
+    "but not every 1 blink "                                                   \
     ";)\n"
 
 // was: Uno R3 July 2023

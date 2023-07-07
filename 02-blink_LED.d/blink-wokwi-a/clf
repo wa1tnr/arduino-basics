@@ -1,0 +1,4 @@
+#!/bin/sh
+clang-format -i -style=file ./src/main.cpp
+
+echo formatted main.cpp using clang-format ; date

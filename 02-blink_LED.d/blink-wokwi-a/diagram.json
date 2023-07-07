@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "author": "nis 7 Jul 1401 UTC 2023 last edit not wokwi.com but vscode wokwi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 180, "left": 18, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led-blue",
+      "top": 90,
+      "left": 160,
+      "attrs": { "color": "blue" }
+    }
+  ],
+  "connections": [
+    [ "uno:GND.1", "led-blue:C", "black", [ "v-40", "h-1" ] ],
+    [ "uno:6", "led-blue:A", "yellow", [ "v-40", "h-5" ] ]
+  ],
+  "dependencies": {}
+}

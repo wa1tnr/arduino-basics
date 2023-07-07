@@ -1,0 +1,2 @@
+#!/bin/sh
+rvim -n ./src/main.cpp

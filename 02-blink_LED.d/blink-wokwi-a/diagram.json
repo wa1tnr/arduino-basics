@@ -1,49 +1,19 @@
 {
   "version": 1,
-  "author": "nis 7 Jul 19:23:44 UTC 2023  last edit not wokwi.com but vscode wokwi",
+  "author": "nis 7 Jul 21:25:18 UTC 2023  last edit not wokwi.com but vscode wokwi",
   "editor": "wokwi",
   "parts": [
     { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
-    {
-      "type": "wokwi-led",
-      "id": "led1",
-      "top": 5,
-      "left": 270,
-      "attrs": { "color": "blue", "flip": " " }
-    },
-    {
-      "type": "wokwi-led",
-      "id": "led2",
-      "top": 70,
-      "left": 270,
-      "attrs": { "color": "yellow", "flip": " " }
-    },
-    {
-      "type": "wokwi-led",
-      "id": "led3",
-      "top": 140,
-      "left": 270,
-      "attrs": { "color": "red", "flip": " " }
-    }
+    { "type": "wokwi-led", "id": "led1", "top": 5, "left": 270, "attrs": { "color": "blue", "flip": " " } },
+    { "type": "wokwi-led", "id": "led2", "top": 70, "left": 270, "attrs": { "color": "yellow", "flip": " " } },
+    { "type": "wokwi-led", "id": "led3", "top": 140, "left": 270, "attrs": { "color": "red", "flip": " " } }
   ],
   "connections": [
     [ "esp:TX0", "$serialMonitor:RX", "", [] ],
     [ "esp:RX0", "$serialMonitor:TX", "", [] ],
-    [ "esp:GND.1", "led3:C", "black", [
-
-
- "h25", "v80", "h198",
- 
- "v-26", "h1"
- 
-
- ] ],
-
-
-
+    [ "esp:GND.1", "led3:C", "black", [ "h25", "v80", "h198", "v-26", "h1" ] ],
     [ "led3:C", "led2:C", "orange", ["v21", "h30", "v-75", "h-29" ] ],
-    [ "led2:C", "led1:C", "violet", ["v16",
-     "h30", "v-65", "h-20" ] ],
+    [ "led2:C", "led1:C", "violet", ["v16", "h30", "v-65", "h-20" ] ],
     [ "esp:D21", "led1:A", "white", [ "h1" ] ],
     [ "esp:D19", "led2:A", "red", [ "h140", "v55", "h1" ] ],
     [ "esp:D18", "led3:A", "green", [ "h130", "v120", "h1" ] ]

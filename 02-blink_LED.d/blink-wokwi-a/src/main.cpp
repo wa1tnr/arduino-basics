@@ -4,7 +4,7 @@
 
 #include <Arduino.h>
 #define ARE_YOU_THERE                                                          \
-    "it's in the bag - working program 15:36z"                                 \
+    "it's in the bag - working program 17:34:22z  keiota  bialto"              \
     "\n\nobjective: make a thing happen every n blinks but not every 1 blink " \
     ";)\n"
 

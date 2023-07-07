@@ -1,0 +1,11 @@
+pio pkg list
+Resolving esp32doit-devkit-v1 dependencies...
+Platform espressif32 @ 6.3.2 (required: espressif32)
+├── framework-arduinoespressif32 @ 3.20009.0 (required: platformio/framework-arduinoespressif32 @ ~3.20009.0)
+├── tool-esptoolpy @ 1.40501.0 (required: platformio/tool-esptoolpy @ ~1.40501.0)
+├── tool-mkfatfs @ 2.0.1 (required: platformio/tool-mkfatfs @ ~2.0.0)
+├── tool-mklittlefs @ 1.203.210628 (required: platformio/tool-mklittlefs @ ~1.203.0)
+├── tool-mkspiffs @ 2.230.0 (required: platformio/tool-mkspiffs @ ~2.230.0)
+└── toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5 (required: espressif/toolchain-xtensa-esp32 @ 8.4.0+2021r2-patch5)
+
+Fri  7 Jul 19:42:13 UTC 2023

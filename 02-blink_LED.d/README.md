@@ -1,5 +1,9 @@
 README.md  for blink-a.ino
 
+07 July 2023
+
+Added wokwi sim for vscode example - TESTING / ALPHA
+
 02 January 2021
 
 The program demonstrates that a bool(ean) can be

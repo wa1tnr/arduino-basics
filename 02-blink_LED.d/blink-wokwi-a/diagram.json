@@ -11,12 +11,12 @@
   "connections": [
     [ "esp:TX0", "$serialMonitor:RX", "", [] ],
     [ "esp:RX0", "$serialMonitor:TX", "", [] ],
-    [ "esp:GND.1", "led3:C", "black", [ "h25", "v80", "h198", "v-26", "h1" ] ],
-    [ "led3:C", "led2:C", "orange", ["v21", "h30", "v-75", "h-29" ] ],
-    [ "led2:C", "led1:C", "violet", ["v16", "h30", "v-65", "h-20" ] ],
-    [ "esp:D21", "led1:A", "white", [ "h1" ] ],
-    [ "esp:D19", "led2:A", "red", [ "h140", "v55", "h1" ] ],
-    [ "esp:D18", "led3:A", "green", [ "h130", "v120", "h1" ] ]
+    [ "esp:GND.1", "led3:C", "black", [ "h25", "v80", "h199", "v-31", "h1" ] ],
+    [ "led3:C", "led2:C", "black", ["v16", "h30", "v-70", "h-29" ] ],
+    [ "led2:C", "led1:C", "black", ["v16", "h30", "v-65", "h-20" ] ],
+    [ "esp:D21", "led1:A", "blue", [ "h1" ] ],
+    [ "esp:D19", "led2:A", "yellow", [ "h140", "v56", "h1" ] ],
+    [ "esp:D18", "led3:A", "red", [ "h130", "v116", "h1" ] ]
   ],
   "dependencies": {}
 }

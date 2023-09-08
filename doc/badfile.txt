@@ -1,0 +1,5 @@
+using the repository for bad tags on github
+(try a good one, then rename it to 'not-tag'
+to avoid continuous namespace pollution).
+
+shrug
